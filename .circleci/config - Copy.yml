@@ -27,7 +27,10 @@ jobs:
           DEBIAN_FRONTEND: "noninteractive"
           EXTRACT_DEST: /tmp/extracted-archive
           ENVIRONMENT: review
-
+          CF_API: https://api.sys.evans.pal.pivotal.io
+          CF_PASSWORD: gcqrbkh6
+          CF_USERNAME: sanju_kumari@dell.com
+          CF_ORG: RoundRock
     steps:
       - attach_workspace:
           at: artifacts
@@ -62,7 +65,10 @@ jobs:
           DEBIAN_FRONTEND: "noninteractive"
           EXTRACT_DEST: /tmp/extracted-archive
           ENVIRONMENT: production
-
+          CF_API: https://api.sys.evans.pal.pivotal.io
+          CF_PASSWORD: gcqrbkh6
+          CF_USERNAME: sanju_kumari@dell.com
+          CF_ORG: RoundRock
     steps:
       - attach_workspace:
           at: artifacts

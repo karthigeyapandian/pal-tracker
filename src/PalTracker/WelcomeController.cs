@@ -8,7 +8,7 @@ namespace PalTracker
 	private readonly WelcomeMessage _message;
         
         [HttpGet]
-        public string SayHello1() => _message.Message;
+        public string SayHello() => _message.Message;
 
         public WelcomeController(WelcomeMessage message)
         {
