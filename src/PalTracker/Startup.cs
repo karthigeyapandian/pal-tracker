@@ -11,7 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
-
+using Steeltoe.Management.CloudFoundry;
+using Steeltoe.Management.Endpoint.CloudFoundry;
+ using Steeltoe.Common.HealthChecks;
 namespace PalTracker
 {
     public class Startup
@@ -33,9 +35,12 @@ namespace PalTracker
 
 
             services.AddSingleton(sp => new CloudFoundryInfo("123","512M","1", "127.0.0.1"));
+            services.AddSingleton<IHealthContributor, TimeEntryHealthContributor>();
 
  		services.AddScoped<ITimeEntryRepository, MySqlTimeEntryRepository>();
          services.AddDbContext<TimeEntryContext>(options => options.UseMySql(Configuration));
+         services.AddCloudFoundryActuators(Configuration);
+         
               
         }
 
@@ -53,6 +58,7 @@ namespace PalTracker
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseCloudFoundryActuators();
 
 
         }
