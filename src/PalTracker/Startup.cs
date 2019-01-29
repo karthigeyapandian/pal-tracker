@@ -37,9 +37,9 @@ namespace PalTracker
             services.AddSingleton(sp => new CloudFoundryInfo("123","512M","1", "127.0.0.1"));
             services.AddSingleton<IHealthContributor, TimeEntryHealthContributor>();
 
- 		services.AddSingleton<ITimeEntryRepository, MySqlTimeEntryRepository>();
-         services.AddDbContext<TimeEntryContext>(options => options.UseMySql(Configuration));
-         services.AddCloudFoundryActuators(Configuration);
+ 		    services.AddScoped<ITimeEntryRepository, MySqlTimeEntryRepository>();
+            services.AddDbContext<TimeEntryContext>(options => options.UseMySql(Configuration));
+            services.AddCloudFoundryActuators(Configuration);
          
               
         }
