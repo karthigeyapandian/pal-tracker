@@ -32,6 +32,8 @@ namespace PalTracker
 
 
             services.AddSingleton(sp => new CloudFoundryInfo("123","512M","1", "127.0.0.1"));
+
+ 		services.AddSingleton<ITimeEntryRepository, InMemoryTimeEntryRepository>();
               
         }
 
