@@ -6,5 +6,6 @@ applications:
   instances: 2
   memory: 512M
   routes:
-  - route: pal-tracker-quick-ratel-production.apps.evans.pal.pivotal.io
+  - route: pal-tracker-productionsk.apps.evans.pal.pivotal.io
   stack: cflinuxfs2
+  path: src/PalTracker/bin/Release/netcoreapp2.1/publish/
